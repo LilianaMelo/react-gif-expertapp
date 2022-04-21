@@ -1,17 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'; //se cambia por la siguiente importación debido a la nueva version.
+//import { createRoot } from "react-dom/client"
+import { GifExpertApp } from './GifExpertApp';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+/*
+const container = document.getElementById('04-GIF_EXPERT_APP');
+const root = createRoot(container);
+root.render(<GifExpertApp />);
+*/
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <GifExpertApp />, document.getElementById("root") 
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Tarea:
+// GifExpertApp
+// <h2>GifExpertApp</h2>
+// <hr /> esta es una linea en la página de forma horizontal.
+
