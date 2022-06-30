@@ -1,17 +1,21 @@
 //import React, { useState, useEffect } from "react";
+
+import React from "react";
+import PropTypes from 'prop-types';
 import { useFetchGifs } from "../hooks/useFetchGifs";
 import { GifGridItem } from "./GifGridItem";
-//import { getGifs } from "./helpers/getGifs";
+//import { GifRandom } from "./GifRandom";
 
 
-// coleccion de todos los elementos de esa categoria. // componente que recibe la info de addCategory
+
+// Este Componente es una coleccion de todos los elementos de esa categoria. // componente que recibe la info de addCategory
 
 export const GifGrid = ({category}) => {
 
 
     //CustomHook:
 
-    const {data:images, loading} = useFetchGifs(category);
+    const { data:images, loading } = useFetchGifs(category);
 
 
     
@@ -55,6 +59,7 @@ export const GifGrid = ({category}) => {
     //getGifs(); esto genera hace que se ejecute nuevamente toda la funcion de getGifs
     
     // contenedor de cartas: card-grid
+
     return (
         <>
             <h3 className="card animate__animated animate__fadeIn"> {category} </h3>
@@ -65,7 +70,8 @@ export const GifGrid = ({category}) => {
 
                 {
                     images.map( img => (
-                        <GifGridItem 
+                        <GifGridItem
+                     
                             key={img.id}
                             { ...img} 
                         />
@@ -76,7 +82,21 @@ export const GifGrid = ({category}) => {
                         <li key={img.id}> { img.title } </li>
                     )) esto para hacer la prueba antes de hacer el llamado del componente GifGridItem  * */}
 
+                { /*
+                    images.map( img => (
+                        <GifRandom
+                     
+                            key={img.id}
+                            { ...img} 
+                        />
+                    ))
+                    */ }
+
             </div> 
         </>
     )
+}
+
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired
 }

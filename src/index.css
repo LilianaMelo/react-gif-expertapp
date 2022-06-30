@@ -1,39 +1,79 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    background: #121212;
+}
+
+h1 {
+    font-size: 50px;
+    color: white;
 }
 
 body {
     padding: 60px;   
+    background: #121212;
 }
 
 input {
-    border-radius: 3px;
-    color: gray;
+    border-radius: 4px;
+    color: rgb(69, 69, 69); 
     font-size: 1.2rem;
-    width: 100%;
-    
+    width: 90%;
+    padding: 9px;
+    background: rgb(230, 230, 230);
 }
 
 .card-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background: #121212;
 }
 
 .card {
     align-content: center; 
-    border: 1px solid grey;
-    border-radius: 6px;
+    border: 1px solid rgb(5, 20, 62);
+    border-radius: 10px;
     margin-bottom: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
+    margin-top: 8px;
     overflow: hidden; /* es para que el borde de las imagenes no se salgan del contenedor */ 
 }
 
 .card p {
-    padding: 5px;
+    padding: 10px;
     text-align: center;
+    background: rgb(237, 237, 237);
+    border: 0;
+    margin: 0;
 }
 
 .card img {
-    max-height: 170px;
+    max-height: 160px; 
+    border: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+button {
+    
+    /* background-color: rgb(12, 65, 129); */
+    background-color: #0e51b0;
+    border-radius: 6px;
+    border-color: rgb(5, 20, 62);
+    padding: 12px;
+    color: rgb(255, 255, 255);
+    /* margin-bottom: 10px; */
+    /* margin-top: 10px; */
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+h3 {
+    color: white;
+    padding: 6px;
 }

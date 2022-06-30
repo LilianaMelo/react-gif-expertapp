@@ -1,4 +1,3 @@
-
 // se copia la const de getGifs.
 // peticion http 
 
@@ -22,5 +21,5 @@ export const getGifs = async (category) => {
     })
 
     return gifs;
-    
+    //si la categoria no existe entonces lanza un error.
 }

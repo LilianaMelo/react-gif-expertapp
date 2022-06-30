@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; //se cambia por la siguiente importación debido a la nueva version.
 //import { createRoot } from "react-dom/client"
-import { GifExpertApp } from './GifExpertApp';
+import { GifExpertApp } from './GifExpertApp'; // componente padre.
 import './index.css';
 
 /*

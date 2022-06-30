@@ -4,12 +4,14 @@
 
 import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
+//import { GifRandom } from "../components/GifRandom";
 
 
 // El CustomHook es una funcion component y se extrae una pequeña logica para implementar una carga automatica.
 
 export const useFetchGifs = (category) => { // se trae el category o los props dependiendo como se esta haciendo.
 
+    // estado inicial
     const [state, setState] = useState ({ // estado, indicarle a otros componenetes que lo utilisen cuando algo cambio.
 
         data: [],
@@ -18,8 +20,11 @@ export const useFetchGifs = (category) => { // se trae el category o los props d
     });
 
     // los efectos no pueden ser async por esperan algo asincrono.
+    
+    //aqui dispara un efecto
     useEffect( () => { // en los customhook tambien se pueden hacer efectos. useEffect se realiza cuando cambia la categoria.
 
+        // Tarea asincrona
         // petición http
         getGifs(category)// pasa una promesa
             .then( imgs => {  
@@ -29,6 +34,16 @@ export const useFetchGifs = (category) => { // se trae el category o los props d
                     loading: false
                 }); 
             }) 
+
+        // petición http
+            /* GifRandom(category) // promesa se pasa al useFecthGifs. desde GifRandom.
+            .then( imgRandom => {
+
+                setState({
+                    data: imgRandom,
+                    loading: false
+                });
+            }) */
 
     }, [category]) // aqui se llama la category 
 
