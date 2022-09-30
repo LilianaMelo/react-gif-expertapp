@@ -7,14 +7,12 @@ import { GifGridItem } from "./GifGridItem";
 //import { GifRandom } from "./GifRandom";
 
 
-
 // Este Componente es una coleccion de todos los elementos de esa categoria. // componente que recibe la info de addCategory
 
 export const GifGrid = ({category}) => {
 
 
     //CustomHook:
-
     const { data:images, loading } = useFetchGifs(category);
 
 
@@ -22,6 +20,8 @@ export const GifGrid = ({category}) => {
      /* const [images, setImages] = useState([]); // la coleccion por defecto es un arreglo[].
 
     // useEffect permite ejecutar cierto codigo de forma condicional 
+    // useEffect // sirve para disparar un efecto secundario. cuando el componente cambia.. etc...
+    // callback es cualquier funcion. 
     
     useEffect( () => { // aqui se dispara una sola vez.
         getGifs(category)// aquí solo se ejecuta getGifs() una sola vez.
@@ -31,6 +31,8 @@ export const GifGrid = ({category}) => {
 
 
     /*
+
+
     // peticion http 
     const getGifs = async () => { //  funciones
 
@@ -64,16 +66,22 @@ export const GifGrid = ({category}) => {
         <>
             <h3 className="card animate__animated animate__fadeIn"> {category} </h3>
 
-            {loading && <p className="animate__flash">Cargando</p>}
+            {/* // si loading esta en true va a ejecutar la segunda parte de la condicion. Esta es la mejor forma. */}
+            { loading && <p className="animate__flash">Cargando...</p>}
+
+            {/* { // esta es otra forma de usarlo.
+                loading 
+                ? ( <p className="animate__flash">Cargando...</p>} )
+                : null    
+            */}
 
             <div className="card-grid">
 
                 {
                     images.map( img => (
                         <GifGridItem
-                     
                             key={img.id}
-                            { ...img} 
+                            { ...img} // para ingresar a las propiedades de img y pasarlas al componente de GifGridItem.
                         />
                     ))
                 }

@@ -1,11 +1,13 @@
 // COMPONENTE PADRE
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react"; 
 import { AddCategory } from "./components/AddCategory";
 import { GifGrid } from "./components/GifGrid";
-//import { GifRandom } from "./components/GifRandom";
+// import { GifRandom } from "./components/GifRandom";
+
+// import { AddCategory, GifGrid } from "./components"; // esto es valio solo en la version 18 de react
 
 
-export const GifExpertApp = ({ defaultCategories = [] }) => { // defaultCategories añade una propiedad por defecto.
+export const GifExpertApp = ({ defaultCategories = ["gif"] }) => { // defaultCategories añade una propiedad por defecto.
 
     //const categories = ["One Puch", "Samurai X", "Dragon Ball"]; // ESTO SE USA CUANDO LOS ELEMENTOS NO CAMBIAN.
 
@@ -28,7 +30,7 @@ export const GifExpertApp = ({ defaultCategories = [] }) => { // defaultCategori
         <Fragment>
 
             <h1>Busca tus gif´s favoritos</h1>
-            <AddCategory setCategories={setCategories}/>
+            <AddCategory setCategories={setCategories} />
 
         {/*
             <ol>
@@ -37,13 +39,11 @@ export const GifExpertApp = ({ defaultCategories = [] }) => { // defaultCategori
         */}   
             <hr />
 
-            {/* Esto muestra la constante en el html, los vuelve visible*/}
-
             <ol>
                 {   
                     categories.map(category => (
                         <GifGrid 
-                            key={category}
+                            key={category} // key es obligatorio cuando se usa .map
                             category={category}
                         />
                         

@@ -12,7 +12,7 @@ import { getGifs } from "../helpers/getGifs";
 export const useFetchGifs = (category) => { // se trae el category o los props dependiendo como se esta haciendo.
 
     // estado inicial
-    const [state, setState] = useState ({ // estado, indicarle a otros componenetes que lo utilisen cuando algo cambio.
+    const [state, setState] = useState ({ // estado, indicarle a otros componentes que lo utilicen cuando algo cambio.
 
         data: [],
         loading: true
@@ -24,8 +24,7 @@ export const useFetchGifs = (category) => { // se trae el category o los props d
     //aqui dispara un efecto
     useEffect( () => { // en los customhook tambien se pueden hacer efectos. useEffect se realiza cuando cambia la categoria.
 
-        // Tarea asincrona
-        // petición http
+        // Tarea asincrona  // petición http
         getGifs(category)// pasa una promesa
             .then( imgs => {  
 

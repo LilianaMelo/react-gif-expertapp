@@ -1,11 +1,13 @@
+// En react 18 no es necesario importar React.
 import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 
+// cada componente puede tener su propio estado o hook o useStates
 
 //GifExpertApp
 // (props) es una forma de hacerlo
 // se desestructura los argumentos del componenete
-export const AddCategory = ( {setCategories} ) => {
+export const AddCategory = ( {setCategories, categories} ) => {
     
     const [inputValue, setInputValue] = useState(""); // la caja de texto tiene un estado, para saber lo que la persona esta escribiendo (input :: Add Category). 
     // inputValue:: valor de entrada, setInputValue:: establecer valor de entrada.
@@ -14,23 +16,24 @@ export const AddCategory = ( {setCategories} ) => {
 
     //const [gifRandom, setGifRandom] = useState("");
     
-    const handleInputChange = (e) => {  // extraer la informacion de onChange y recibimos el evento (e).
+    const onInputChange = (e) => {  // extraer la informacion de onChange y recibimos el evento (e).
+
+        // if (categories.includes(setCategories)) return;
 
         //console.log(e.target.value);
         setInputValue(e.target.value); // con esto permite hacer cambios en el input o barra.
-
-        //console.log("handleInputChange llamado prueba")
+        //console.log("onInputChange llamado prueba")
     }
 
-    const handleSubmit = (e) => {
+    const onSubmit = (e) => {
 
         e.preventDefault(); // prevenir el comportamiento por defecto del navegador.
-        //console.log("handleSubmit", inputValue);
+        //console.log("onSubmit", inputValue);
 
         // .trim :: elimina los espacios en blanco al inicio y al final del string.
 
         if ( inputValue.trim().length > 2 ) {
-            setCategories( categorias => [ inputValue, ...categorias ]); // los ... permiten agregar un nuevo item. 
+            setCategories( categorias => [ inputValue, ...categorias ]); // los ... permiten agregar un nuevo item. la desestructuracion 
             setInputValue("");
         } else {
             
@@ -52,7 +55,7 @@ export const AddCategory = ( {setCategories} ) => {
     
     
     return ( // primero hace el return y muestra la información // snapshot
-        <form onSubmit={handleSubmit}>  {/* el form y el onSubmit quita el refres de la pagina*/} {/* se llama a la constante*/}
+        <form onSubmit={onSubmit}>  {/* el form y el onSubmit quita el refres de la pagina*/} {/* se llama a la constante*/}
 
             {/* <h1>{inputValue}</h1> esto muestra en una linea lo que se escribe en el input.*/}
             
@@ -63,18 +66,18 @@ export const AddCategory = ( {setCategories} ) => {
                 type="text" // cada uno de estos son las props
                 placeholder="Buscar gifs"
                 value={inputValue} // muestra el valor de Hola Mundo, pero no deja modificar el input.
-                onChange={ handleInputChange } // es para cambiar el valor o el contenido del input. // e es el evento // Luego llamamos a handleInputChange para 
+                onChange={ onInputChange } // es para cambiar el valor o el contenido del input. // e es el evento // Luego llamamos a onInputChange para 
                 /* se llama a la constante*/
             />
 
             <div className="container"> 
-                <button onSubmit={handleSubmit}>Buscar</button>
+                <button onSubmit={onSubmit}>Buscar</button>
                 <br />
 
-                <button //  onSubmit={ changeSubmit }
+                {/* <button //  onSubmit={ changeSubmit }
                 >
                     Gif Aleatorio
-                </button>
+                </button> */}
 
             </div>
         </form>

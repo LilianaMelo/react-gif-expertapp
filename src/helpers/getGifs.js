@@ -19,7 +19,7 @@ export const getGifs = async (category) => {
             url: img.images?.downsized_medium.url // images? es para preguntar que si vienen las imagenes que las utilice y las muestre.
         }
     })
-
+    // console.log(gifs);
     return gifs;
     //si la categoria no existe entonces lanza un error.
 }
